@@ -1,0 +1,28 @@
+1	Begin Error Handling; Action: Continue; Options: Take Snapshot,  Task Status: Fail
+2	     Excel: Open Spreadsheet "D:\Proect\AAE11\BFSI Macros\MacroSheet.xlsx". ActiveSheet: "Default". Session: Default
+3	     Excel: Get All Cells Session: Default
+4	     Excel: Open Spreadsheet "D:\Proect\AAE11\Granuality Analysis\ashutosh.singh@solicon.co.in_Bot_2_output.xlsx". ActiveSheet: "Default". Session: Default1
+5	     Excel: Get All Cells Session: Default1
+6	     Excel: Go to cell "E1". Session: Default1
+7	     Start Loop "Each row in an Excel dataset of Session: Default1"
+8	          Variable Operation: $Excel Column(2)$ To $AshCol2$
+9	          Variable Operation: $Excel Column(3)$ To $AshCol3$
+10	          Variable Operation: $Excel Column(4)$ To $AshCol5$
+11	          Start Loop "Each row in an Excel dataset of Session: Default"
+12	               If $Excel Column(2)$ Equal To (=) $AshCol2$ AND $Excel Column(3)$ Equal To (=) $AshCol3$ AND $Excel Column(5)$ Equal To (=) $AshCol5$ Then
+13	                    Message Box: "$Excel Column(5)$"; Disabled: True
+14	                    Variable Operation: $Excel Column(6)$ To $AshCol6$
+15	                    Excel: Set value of Active Cell with "$AshCol6$". Session: Default1
+16	                    Excel: Go to one cell below the active cell. Session: Default1
+17	                    Exit Loop
+18	               Else If $AshCol3$ Not Equal To (<>) "PPBL" Then  
+19	                    Excel: Set value of Active Cell with "---". Session: Default1
+20	                    Excel: Go to one cell below the active cell. Session: Default1
+21	                    Exit Loop
+22	               End If
+23	          End Loop
+24	     End Loop
+25	     Excel: Close Spreadsheet. Session: Default
+26	     Excel: Close Spreadsheet. Session: Default1
+27	End Error Handling
+28	Rename Files "D:\Proect\AAE11\Granuality Analysis\ashutosh.singh@solicon.co.in_Bot_2_Output.xlsx" to "ashutosh.singh@solicon.co.in_Bot_2_Output.xlsx"  
